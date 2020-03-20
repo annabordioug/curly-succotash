@@ -14,8 +14,8 @@ jobs:
     steps:
     - uses: actions/checkout@master
       
-    - name: Setup Nuget.exe
-      uses: warrenbuckley/Setup-Nuget@v1
+   # - name: Setup Nuget.exe
+   #   uses: warrenbuckley/Setup-Nuget@09c4593
   
     - name: Nuget Restore 
       run:  nuget restore .\WpfAppMain.sln
