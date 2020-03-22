@@ -13,16 +13,25 @@ if(-not(Get-Command "msbuild" -ErrorAction SilentlyContinue)){
     Error "MSBuild must be set in your path. It is recommended to use MSBuild that comes with Visual Studio 2019.`n"
     Exit
 }
+Write-Output "`n#############################################"
+Write-Output "## Passed msbuildstep ##"
+Write-Output "#############################################`n"
 
 if  (-not(Get-Command "fxc" -ErrorAction SilentlyContinue)){
     Error "Direct X SDK is not installed. Please install it.`n"
     Exit
 }
+Write-Output "`n#############################################"
+Write-Output "## Passed directx step##"
+Write-Output "#############################################`n"
 
 if  (-not(Get-Command "signtool" -ErrorAction SilentlyContinue)){
     Error "Windows 10 dev kit is missing. Please install it.`n"
     Exit
 }	
+Write-Output "`n#############################################"
+Write-Output "## signtool ##"
+Write-Output "#############################################`n"
 
 
 $MSBuildBase = (Get-Command "msbuild").Definition 
@@ -72,10 +81,18 @@ Write-Output "[Starting Build]"
 
 # & $MSBuildBase TunnelBear.Bootstrapper.Actions\TunnelBear.Bootstrapper.Actions.csproj /t:Rebuild /p:Configuration=$config /p:Platform=x86
 # & $MSBuildBase TunnelBear.Setup.Actions\TunnelBear.Setup.Actions.csproj /t:Rebuild /p:Configuration=$config /p:Platform=x86
+Write-Output "`n#############################################"
+Write-Output "## Starting Building... ##"
+Write-Output "#############################################`n"
+
 & $MSBuildBase UnitTestProject1\UnitTestProject1.csproj 
 & $MSBuildBase WpfApp1\WpfApp1.csproj 
 
+Write-Output "`n#############################################"
+Write-Output "## Starting Signing.... ##"
+Write-Output "#############################################`n"
 
+#& $SignTool sign /sm /t http://timestamp.verisign.com/scripts/timstamp.dll  /n "Dana Woo" "WpfApp1\bin\Debug\WpfApp1.exe"
 
 # & $SignTool sign /sm /t http://timestamp.verisign.com/scripts/timstamp.dll  /n "TunnelBear" /sha1 "9F2452136EA3565E65236162C20DFD012728CA31" "TunnelBear.Installer.UI\bin\x86\$config\TunnelBear.Installer.UI.exe"
 
