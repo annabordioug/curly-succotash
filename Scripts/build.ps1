@@ -8,32 +8,32 @@ Write-Output "#############################################`n"
 #Write-Output  "MsBuildPath:"  $(Get-Item MsBuildPath).Value
 Write-Output  "Path:"  $(Get-Item Env:Path).Value
 #Exit
-Write-Output "`n#############################################"
-Write-Output "## About to start msbuildstep ##"
-Write-Output "#############################################`n"
-if(-not(Get-Command "msbuild" -ErrorAction SilentlyContinue)){
-    Error "MSBuild must be set in your path. It is recommended to use MSBuild that comes with Visual Studio 2019.`n"
-    Exit
-}
-Write-Output "`n#############################################"
-Write-Output "## Passed msbuildstep ##"
-Write-Output "#############################################`n"
+# Write-Output "`n#############################################"
+# Write-Output "## About to start msbuildstep ##"
+# Write-Output "#############################################`n"
+# if(-not(Get-Command "msbuild" -ErrorAction SilentlyContinue)){
+#     Error "MSBuild must be set in your path. It is recommended to use MSBuild that comes with Visual Studio 2019.`n"
+#     Exit
+# }
+# Write-Output "`n#############################################"
+# Write-Output "## Passed msbuildstep ##"
+# Write-Output "#############################################`n"
 
-if  (-not(Get-Command "fxc" -ErrorAction SilentlyContinue)){
-    Error "Direct X SDK is not installed. Please install it.`n"
-    Exit
-}
-Write-Output "`n#############################################"
-Write-Output "## Passed directx step##"
-Write-Output "#############################################`n"
+# if  (-not(Get-Command "fxc" -ErrorAction SilentlyContinue)){
+#     Error "Direct X SDK is not installed. Please install it.`n"
+#     Exit
+# }
+# Write-Output "`n#############################################"
+# Write-Output "## Passed directx step##"
+# Write-Output "#############################################`n"
 
-if  (-not(Get-Command "signtool" -ErrorAction SilentlyContinue)){
-    Error "Windows 10 dev kit is missing. Please install it.`n"
-    Exit
-}	
-Write-Output "`n#############################################"
-Write-Output "## signtool ##"
-Write-Output "#############################################`n"
+# if  (-not(Get-Command "signtool" -ErrorAction SilentlyContinue)){
+#     Error "Windows 10 dev kit is missing. Please install it.`n"
+#     Exit
+# }	
+# Write-Output "`n#############################################"
+# Write-Output "## signtool ##"
+# Write-Output "#############################################`n"
 
 
 $MSBuildBase = (Get-Command "msbuild").Definition 
