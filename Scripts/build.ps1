@@ -74,6 +74,9 @@ Write-Output "[Starting Build]"
 # & $MSBuildBase TunnelBear.Setup.Actions\TunnelBear.Setup.Actions.csproj /t:Rebuild /p:Configuration=$config /p:Platform=x86
 & $MSBuildBase UnitTestProject1\UnitTestProject1.csproj 
 & $MSBuildBase WpfApp1\WpfApp1.csproj 
+
+
+
 # & $SignTool sign /sm /t http://timestamp.verisign.com/scripts/timstamp.dll  /n "TunnelBear" /sha1 "9F2452136EA3565E65236162C20DFD012728CA31" "TunnelBear.Installer.UI\bin\x86\$config\TunnelBear.Installer.UI.exe"
 
 # & $MSBuildBase TunnelBear.Setup\TunnelBear.Setup.wixproj /t:Rebuild /p:Configuration=Release /p:Platform=x86
