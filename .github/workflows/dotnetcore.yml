@@ -23,3 +23,10 @@ jobs:
       uses: warrenbuckley/Setup-MSBuild@v1
     - name: Build with script
       run: .\Scripts\build.ps1
+
+    - run: mkdir -p path/to/artifact
+    - run: echo hello > path/to/artifact/world.txt
+    - uses: actions/upload-artifact@v1
+      with:
+        name: my-artifact
+        path: path/to/artifact
