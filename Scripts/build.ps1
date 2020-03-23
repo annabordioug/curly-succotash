@@ -26,7 +26,7 @@ dir
 # }	
 
 
-# $MSBuildBase = (Get-Command "msbuild").Definition 
+$MSBuildBase = (Get-Command "msbuild").Definition 
 # $Fxc = (Get-Command "fxc").Definition 
 # $SignTool  = (Get-Command "signtool").Definition 
 
