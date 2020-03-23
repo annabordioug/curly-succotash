@@ -8,26 +8,27 @@ Write-Output "#############################################`n"
 #Write-Output  "MsBuildPath:"  $(Get-Item MsBuildPath).Value
 Write-Output  "Path:"  $(Get-Item Env:Path).Value
 #Exit
+dir
 
-if(-not(Get-Command "msbuild" -ErrorAction SilentlyContinue)){
-    Error "MSBuild must be set in your path. It is recommended to use MSBuild that comes with Visual Studio 2019.`n"
-    Exit
-}
+# if(-not(Get-Command "msbuild" -ErrorAction SilentlyContinue)){
+#     Error "MSBuild must be set in your path. It is recommended to use MSBuild that comes with Visual Studio 2019.`n"
+#     Exit
+# }
 
-if  (-not(Get-Command "fxc" -ErrorAction SilentlyContinue)){
-    Error "Direct X SDK is not installed. Please install it.`n"
-    Exit
-}
+# if  (-not(Get-Command "fxc" -ErrorAction SilentlyContinue)){
+#     Error "Direct X SDK is not installed. Please install it.`n"
+#     Exit
+# }
 
-if  (-not(Get-Command "signtool" -ErrorAction SilentlyContinue)){
-    Error "Windows 10 dev kit is missing. Please install it.`n"
-    Exit
-}	
+# if  (-not(Get-Command "signtool" -ErrorAction SilentlyContinue)){
+#     Error "Windows 10 dev kit is missing. Please install it.`n"
+#     Exit
+# }	
 
 
-$MSBuildBase = (Get-Command "msbuild").Definition 
-$Fxc = (Get-Command "fxc").Definition 
-$SignTool  = (Get-Command "signtool").Definition 
+# $MSBuildBase = (Get-Command "msbuild").Definition 
+# $Fxc = (Get-Command "fxc").Definition 
+# $SignTool  = (Get-Command "signtool").Definition 
 
 
 Write-Output "[Starting Build]"    
@@ -72,8 +73,11 @@ Write-Output "[Starting Build]"
 
 # & $MSBuildBase TunnelBear.Bootstrapper.Actions\TunnelBear.Bootstrapper.Actions.csproj /t:Rebuild /p:Configuration=$config /p:Platform=x86
 # & $MSBuildBase TunnelBear.Setup.Actions\TunnelBear.Setup.Actions.csproj /t:Rebuild /p:Configuration=$config /p:Platform=x86
-& $MSBuildBase UnitTestProject1\UnitTestProject1.csproj 
-& $MSBuildBase WpfApp1\WpfApp1.csproj 
+msbuild UnitTestProject1\UnitTestProject1.csproj 
+msbuild WpfApp1\WpfApp1.csproj 
+
+
+
 # & $SignTool sign /sm /t http://timestamp.verisign.com/scripts/timstamp.dll  /n "TunnelBear" /sha1 "9F2452136EA3565E65236162C20DFD012728CA31" "TunnelBear.Installer.UI\bin\x86\$config\TunnelBear.Installer.UI.exe"
 
 # & $MSBuildBase TunnelBear.Setup\TunnelBear.Setup.wixproj /t:Rebuild /p:Configuration=Release /p:Platform=x86
