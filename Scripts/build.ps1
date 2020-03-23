@@ -36,11 +36,11 @@ Write-Output  "Path:"  $(Get-Item Env:Path).Value
 # Write-Output "#############################################`n"
 
 
-Write-Output "[Getting msbuild]"   
-$MSBuildBase = (Get-Command "msbuild").Definition 
+#Write-Output "[Getting msbuild]"   
+#$MSBuildBase = (Get-Command "msbuild").Definition 
 #$Fxc = (Get-Command "fxc").Definition 
-Write-Output "[Getting signtool]"  
-$SignTool  = (Get-Command "signtool").Definition 
+#Write-Output "[Getting signtool]"  
+#$SignTool  = (Get-Command "signtool").Definition 
 
 
 Write-Output "[Starting Build]"    
@@ -89,8 +89,8 @@ Write-Output "`n#############################################"
 Write-Output "## Starting Building... ##"
 Write-Output "#############################################`n"
 
-& $MSBuildBase UnitTestProject1\UnitTestProject1.csproj 
-& $MSBuildBase WpfApp1\WpfApp1.csproj 
+msbuild UnitTestProject1\UnitTestProject1.csproj 
+msbuild WpfApp1\WpfApp1.csproj 
 
 Write-Output "`n#############################################"
 Write-Output "## Starting Signing.... ##"
