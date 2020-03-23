@@ -73,8 +73,8 @@ Write-Output "[Starting Build]"
 
 # & $MSBuildBase TunnelBear.Bootstrapper.Actions\TunnelBear.Bootstrapper.Actions.csproj /t:Rebuild /p:Configuration=$config /p:Platform=x86
 # & $MSBuildBase TunnelBear.Setup.Actions\TunnelBear.Setup.Actions.csproj /t:Rebuild /p:Configuration=$config /p:Platform=x86
-msbuild UnitTestProject1\UnitTestProject1.csproj 
-msbuild WpfApp1\WpfApp1.csproj 
+& $MSBuildBase UnitTestProject1\UnitTestProject1.csproj 
+& $MSBuildBase WpfApp1\WpfApp1.csproj 
 
 
 
