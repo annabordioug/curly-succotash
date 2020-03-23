@@ -21,6 +21,10 @@ jobs:
       run:  nuget restore .\WpfAppMain.sln
     - name: Setup MSBuild.exe
       uses: warrenbuckley/Setup-MSBuild@v1
+    - name: Build Unit Tests with msbuild
+      run: msbuild UnitTestProject1\UnitTestProject1.csproj 
+    - name: Build App with msbuild
+      run: msbuild WpfApp1\WpfApp1.csproj 
     - name: Build with script
       run: .\Scripts\build.ps1
 
