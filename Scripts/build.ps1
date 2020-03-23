@@ -36,8 +36,10 @@ Write-Output  "Path:"  $(Get-Item Env:Path).Value
 # Write-Output "#############################################`n"
 
 
+Write-Output "[Getting msbuild]"   
 $MSBuildBase = (Get-Command "msbuild").Definition 
-$Fxc = (Get-Command "fxc").Definition 
+#$Fxc = (Get-Command "fxc").Definition 
+Write-Output "[Getting signtool]"  
 $SignTool  = (Get-Command "signtool").Definition 
 
 
