@@ -27,7 +27,13 @@ jobs:
  #     run: msbuild WpfApp1\WpfApp1.csproj 
     - name: Build with script
       run: .\Scripts\build.ps1
-
+     
+    - name: Sign app
+      uses: dlemstra/code-sign-action@v1
+      with:
+        certificate: '${{ secrets.CERT }}'
+        folder: 'WpfApp1/bin/Debug'
+        recursive: true
  #   - run: mkdir -p path/to/artifact
  #   - run: echo hello > path/to/artifact/world.txt
     - uses: actions/upload-artifact@v1
