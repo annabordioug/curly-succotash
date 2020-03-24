@@ -29,9 +29,10 @@ jobs:
       run: .\Scripts\build.ps1
      
     - name: Sign app
-      uses: dlemstra/code-sign-action@v1
+      uses: DanaBear/code-sign-action@master
       with:
         certificate: '${{ secrets.CERT }}'
+        password: '${{ secrets.PASS }}'
         folder: 'WpfApp1/bin/Debug'
         recursive: true
  #   - run: mkdir -p path/to/artifact
