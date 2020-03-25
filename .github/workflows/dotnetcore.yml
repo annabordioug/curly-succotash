@@ -31,7 +31,7 @@ jobs:
     - name: Sign app
       uses: DanaBear/code-sign-action@f0840dc61ce2736777862450cec7b9dacca52126
       with:
-        certificate: '${{ secrets.CERT }}'
+        certificate: '${{ secrets.CERT2 }}'
         password: '${{ secrets.PASS }}'
         folder: 'WpfApp1/bin/Debug'
         recursive: true
