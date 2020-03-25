@@ -29,7 +29,7 @@ jobs:
       run: .\Scripts\build.ps1
      
     - name: Sign app
-      uses: DanaBear/code-sign-action@f0840dc61ce2736777862450cec7b9dacca52126
+      uses: DanaBear/code-sign-action@dea5c47834f912e191a238d2d0c5690ebd45cba6
       with:
         certificate: '${{ secrets.CERT2 }}'
         password: '${{ secrets.PASS }}'
