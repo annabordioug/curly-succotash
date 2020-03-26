@@ -9,4 +9,8 @@
     
      steps:
        - checkout
-       - run: dotnet build
+       - run:
+       name: The First Step
+          command: |
+            echo 'Hello World!'
+            echo 'This is the delivery pipeline'
