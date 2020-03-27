@@ -6,7 +6,6 @@
  jobs:
    build:
      executor: win/default
-     shell: powershell.exe
     
      steps:
        - checkout #pull source code from VCS
