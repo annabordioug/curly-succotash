@@ -11,14 +11,14 @@
        - checkout #pull source code from VCS
        - restore_cache:
            keys:
-             - dotnet-packages-v1-{{ checksum "WpfApp1.csproj"}}
+             - dotnet-packages-v1-{{ checksum "C:\Users\16479\source\repos\curly-succotash\WpfApp1"}}
        - run:
           name: "Install project dependencies"
           command: dotnet.exe restore
        - save_cache:
           paths:
             - C:\Users\16479\source\Nuget
-          key: dotnet-packages-v1-{{ checksum "WpfApp1.csproj"}}
+          key: dotnet-packages-v1-{{ checksum "C:\Users\16479\source\repos\curly-succotash\WpfApp1"}}
        - run:
           name: "Build using script"
           command: .\Scripts\build.ps1
