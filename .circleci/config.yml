@@ -8,8 +8,14 @@
      executor: win/default     
     
      steps:
+       - checkout #pull source code from VCS
        - run:
-          name: The First Step
-          command: |
-            echo 'Hello World!'
-            echo 'This is the delivery pipeline'
+          name: "Install project dependencies"
+          command: dotnet.exe restore
+       - save_cache:
+          paths:
+            - C:\Users\16479\source\Nuget
+       - run:
+          name: "Build using script"
+          command: .\Scripts\build.ps1
+       # TODO: sign app
