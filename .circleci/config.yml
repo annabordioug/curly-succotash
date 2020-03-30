@@ -7,7 +7,7 @@
    build:
      executor: 
         name: win/default
-        shell: powershell.exe admin
+        shell: powershell.exe
     
      steps:
        - checkout #Note: defaults to checking out code over ssh (don't use this if you require it to be done over HTTPS)
@@ -26,10 +26,7 @@
           command: .\Scripts\build.ps1
 
        - run:
-          name: "This is a test to see if the powershell is in admin mode"
-          command: .\where.exe where.exe
-
-       #- run:
-       #   name: "Test the app"
-       #   command: vstest.console.exe /Platform:x64 .\UnitTestProject1\bin\Debug\netcoreapp3.1\UnitTestProject1.dll
+          name: "Test the app"
+          command: vstest.console.exe /Platform:x64 .\UnitTestProject1\bin\Debug\netcoreapp3.1\UnitTestProject1.dll
+          environment: C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\TestWindow
        # TODO: sign app
