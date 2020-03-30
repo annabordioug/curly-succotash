@@ -5,7 +5,9 @@
 
  jobs:
    build:
-     executor: win/default
+     executor: 
+        name: win/default
+        shell: powershell.exe admin
     
      steps:
        - checkout #Note: defaults to checking out code over ssh (don't use this if you require it to be done over HTTPS)
