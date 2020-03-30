@@ -28,5 +28,6 @@
        - run:
           name: "Test the app"
           command: vstest.console.exe /Platform:x64 C:\Users\16479\source\repos\curly-succotash\UnitTestProject1\bin\Debug\netcoreapp3.1\UnitTestProject1.dll
-          environment: C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\TestWindow
+          environment: 
+          - PATH: C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\TestWindow
        # TODO: sign app
