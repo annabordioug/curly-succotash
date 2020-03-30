@@ -27,8 +27,7 @@
 
        - run:
           name: "Test the app"
-          command: echo $MYPATH
-          #command: vstest.console.exe /Platform:x64 .\UnitTestProject1\bin\Debug\netcoreapp3.1\UnitTestProject1.dll 
+          command: ${MYPATH}.vstest.console.exe /Platform:x64 .\UnitTestProject1\bin\Debug\netcoreapp3.1\UnitTestProject1.dll 
        # TODO: sign app
 
    test:
