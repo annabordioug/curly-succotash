@@ -8,7 +8,7 @@
      executor: win/default
     
      steps:
-       - checkout #pull source code from VCS
+       - checkout #Note: defaults to checking out code over ssh (don't use this if you require it to be done over HTTPS)
        #- restore_cache:
        #    keys:
        #      - dotnet-packages-v1-{{ checksum "C:\Users\16479\source\repos\curly-succotash\WpfApp1"}}
@@ -24,6 +24,10 @@
           command: .\Scripts\build.ps1
 
        - run:
-          name: "Test the app"
-          command: vstest.console.exe /Platform:x64 .\UnitTestProject1\bin\Debug\netcoreapp3.1\UnitTestProject1.dll
+          name: "This is a test to see if the powershell is in admin mode"
+          command: .\where.exe where.exe
+
+       #- run:
+       #   name: "Test the app"
+       #   command: vstest.console.exe /Platform:x64 .\UnitTestProject1\bin\Debug\netcoreapp3.1\UnitTestProject1.dll
        # TODO: sign app
