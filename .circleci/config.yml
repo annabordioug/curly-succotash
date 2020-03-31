@@ -14,6 +14,10 @@
        #- restore_cache:
        #    keys:
        #      - dotnet-packages-v1-{{ checksum "C:\Users\16479\source\repos\curly-succotash\WpfApp1"}}
+       -run:
+          command: |
+          cd C:\
+          echo Resolve-Path -Path "Program Files (x86)"
        - run:
           name: "Install project dependencies"
           command: nuget restore .\WpfAppMain.sln
