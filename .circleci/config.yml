@@ -24,12 +24,12 @@
              cd Common7\IDE\CommonExtensions\Microsoft\TestWindow
              $env:PATH += ";$pwd"
              cd C:\Users\circleci\project
-             vstest.console.exe /Platform:x64 UnitTestProject1\bin\Debug\netcoreapp3.1\UnitTestProject1.dll
+             dir
 
        - run:
           name: "Install project dependencies"
           command: nuget restore .\WpfAppMain.sln
-       #- save_cache:
+       #- save_cache: vstest.console.exe /Platform:x64 UnitTestProject1\bin\Debug\netcoreapp3.1\UnitTestProject1.dll
        #   paths:
        #     - C:\Users\16479\source\Nuget
        #   key: dotnet-packages-v1-{{ checksum "C:\Users\16479\source\repos\curly-succotash\WpfApp1"}}
