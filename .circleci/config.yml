@@ -20,11 +20,11 @@
              cd C:\
              Resolve-Path -Path "Program Files (x86)" | cd
              cd "Microsoft Visual Studio\Installer"
-             vswhere -latest -products * -requires Microsoft.VisualStudio.Workload.ManagedDesktop Microsoft.VisualStudio.Workload.Web -requiresAny -property installationPath | cd
+             .\vswhere -latest -products * -requires Microsoft.VisualStudio.Workload.ManagedDesktop Microsoft.VisualStudio.Workload.Web -requiresAny -property installationPath | cd
              cd Common7\IDE\CommonExtensions\Microsoft\TestWindow
              $env:PATH += ";$pwd"
              cd C:\Users\circleci\project
-             .\vstest.console.exe /Platform:x64 .\UnitTestProject1\bin\Debug\netcoreapp3.1\UnitTestProject1.dll
+             vstest.console.exe /Platform:x64 .\UnitTestProject1\bin\Debug\netcoreapp3.1\UnitTestProject1.dll
 
        - run:
           name: "Install project dependencies"
