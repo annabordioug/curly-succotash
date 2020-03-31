@@ -15,6 +15,10 @@
        #    keys:
        #      - dotnet-packages-v1-{{ checksum "C:\Users\16479\source\repos\curly-succotash\WpfApp1"}}
        - run:
+          name: "Setup vstest"
+          command: cd C:\
+
+       - run:
           name: "Install project dependencies"
           command: nuget restore .\WpfAppMain.sln
        #- save_cache:
