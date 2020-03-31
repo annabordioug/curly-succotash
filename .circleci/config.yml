@@ -16,9 +16,14 @@
        #      - dotnet-packages-v1-{{ checksum "C:\Users\16479\source\repos\curly-succotash\WpfApp1"}}
        - run:
           name: "Setup vstest"
-          command: |
-             cd C:\
-             Resolve-Path -Path "Program Files (x86)"
+          command: pwd
+          #command: |
+          #   cd C:\
+          #   Resolve-Path -Path "Program Files (x86)" | cd
+          #   cd "Microsoft Visual Studio\Installer"
+          #   vswhere -latest -products * -requires Microsoft.VisualStudio.Workload.ManagedDesktop Microsoft.VisualStudio.Workload.Web -requiresAny -property installationPath | cd
+          #   cd Common7\IDE\CommonExtensions\Microsoft\TestWindow
+          #   .\vstest.console.exe /Platform:x64 .\UnitTestProject1\bin\Debug\netcoreapp3.1\UnitTestProject1.dll
 
        - run:
           name: "Install project dependencies"
