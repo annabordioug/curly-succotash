@@ -24,7 +24,7 @@
              cd Common7\IDE\CommonExtensions\Microsoft\TestWindow
              $env:PATH += ";$pwd"
              cd C:\Users\circleci\project
-             vstest.console.exe /Platform:x64 .\UnitTestProject1\bin\Debug\netcoreapp3.1\UnitTestProject1.dll
+             vstest.console.exe /Platform:x64 UnitTestProject1\bin\Debug\netcoreapp3.1\UnitTestProject1.dll
 
        - run:
           name: "Install project dependencies"
