@@ -7,10 +7,10 @@
    build:
      executor: 
         name: win/default
-        shell: powershell.exe
     
      steps:
-       - checkout #Note: defaults to checking out code over ssh (don't use this if you require it to be done over HTTPS)
+       - checkout 
+       #Note: defaults to checking out code over ssh (don't use this if you require it to be done over HTTPS)
        #- restore_cache:
        #    keys:
        #      - dotnet-packages-v1-{{ checksum "C:\Users\16479\source\repos\curly-succotash\WpfApp1"}}
