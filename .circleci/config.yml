@@ -16,7 +16,9 @@
        #      - dotnet-packages-v1-{{ checksum "C:\Users\16479\source\repos\curly-succotash\WpfApp1"}}
        - run:
           name: "Setup vstest"
-          command: cd C:\
+          command: |
+             cd C:\
+             Resolve-Path -Path "Program Files (x86)"
 
        - run:
           name: "Install project dependencies"
@@ -29,7 +31,5 @@
           name: "Build using script"
           command: .\Scripts\build.ps1
 
-       - run:
-          name: "Test the app"
-          command: C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\TestWindow\vstest.console.exe /Platform:x64 .\UnitTestProject1\bin\Debug\netcoreapp3.1\UnitTestProject1.dll 
-       # TODO: sign app
+       #TODO: test the app
+       #TODO: sign the app
