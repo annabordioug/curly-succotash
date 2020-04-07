@@ -29,7 +29,7 @@
 
        - run:
           name: "Testing vstest"
-          command: vstest.console.exe /Platform:x64 UnitTestProject1\bin\Debug\netcoreapp3.1\UnitTestProject1.dll
+          command: .\vstest.console.exe /Platform:x64 UnitTestProject1\bin\Debug\netcoreapp3.1\UnitTestProject1.dll
 
        - run:
           name: "Setup vstest"
