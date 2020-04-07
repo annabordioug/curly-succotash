@@ -27,7 +27,7 @@
           name: "Build using script"
           command: .\Scripts\build.ps1
 
-      #- run:
+      - run:
           name: "Testing vstest"
           command: | 
              $env:PATH += ";C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\TestWindow"
