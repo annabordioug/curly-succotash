@@ -42,3 +42,6 @@
        #      .\vswhere -latest -products * -requires Microsoft.VisualStudio.Workload.ManagedDesktop Microsoft.VisualStudio.Workload.Web -requiresAny -property installationPath | cd
        #      cd Common7\IDE\CommonExtensions\Microsoft\TestWindow
        #      pwd
+
+       - store_artifacts:
+          path: WpfApp1/bin/Debug
